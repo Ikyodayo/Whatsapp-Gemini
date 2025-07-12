@@ -1,14 +1,10 @@
-/*
-   * Base Simpel + Gemini AI (Modular)
-   * Created By Siputzx Production + Rebot Edit
-*/
 
 require("./config")
 const fs = require('fs')
 const util = require('util')
 const axios = require('axios')
 const { exec } = require("child_process")
-const { getGeminiAi } = require('./lib/gemini') // <-- pastikan file ini ada
+const { getGeminiAi } = require('./lib/gemini') 
 
 module.exports = async (ptz, m) => {
   // Cek pengirim
@@ -21,7 +17,7 @@ module.exports = async (ptz, m) => {
     .map(n => n.replace(/[^0-9]/g, '') + '@s.whatsapp.net')
     .includes(sender)
 
-  if (!isOwner) return // Hanya owner yang bisa pakai perintah, baik di grup atau pribadi
+  if (!isOwner) return // Hanya nomor yang ada di config.js yang bisa pakai perintah, baik di grup atau pribadi
 
 try {
 const body = (
